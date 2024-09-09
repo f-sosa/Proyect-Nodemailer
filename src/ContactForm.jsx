@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-
 const ContactForm = () => {
   const formInitialDetails = {
     firstName: "",
@@ -23,28 +22,36 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
+    const response = await fetch(
+      //lo manda al index
+      "/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(formDetails),
+      }
+    );
     const result = await response.json();
     setButtonText("Send");
     setFormDetails(formInitialDetails);
     if (result.code === 200) {
       setStatus({ success: true, message: "Message sent successfully" });
     } else {
-      setStatus({ success: false, message: "Something went wrong, please try again" });
+      setStatus({
+        success: false,
+        message: "Something went wrong, please try again",
+      });
     }
-  }
+  };
 
   return (
     <div className="form-container">
       <h1>Contact Us</h1>
       <p>We're here to help if you have any questions</p>
       <form className="form-inner" onSubmit={handleSubmit}>
+
         <div className="row">
           <input
             type="text"

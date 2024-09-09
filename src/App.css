@@ -114,3 +114,32 @@ button[type='submit'] {
 button[type='submit']:hover {
   background-color: #1f1b2b;
 }
+/* Estilo general para los iconos */
+.social-icons .icon {
+  display: inline-block;
+  width: 40px; /* Ajusta el tamaño del ícono según sea necesario */
+  height: 40px; /* Ajusta el tamaño del ícono según sea necesario */
+  line-height: 40px;
+  text-align: center;
+  border: 2px solid #fff; /* Cambia el color del borde según sea necesario */
+  border-radius: 50%;
+  color: #fff; /* Color inicial de los iconos */
+  transition: all 0.3s ease; /* Animación suave para cambios */
+}
+
+/* Efecto de hover para cambiar color de fondo y color de ícono */
+.social-icons .icon:hover {
+  background-color: #fff; /* Color de fondo cuando se pasa el mouse */
+  color: #000; /* Color del ícono cuando se pasa el mouse */
+}
+
+/* Estilo específico para cada ícono si es necesario */
+.icon.github i,
+.icon.whatsapp i {
+  color: #fff; /* Color inicial de los íconos de GitHub y WhatsApp */
+}
+
+.icon.github:hover i,
+.icon.whatsapp:hover i {
+  color: #000; /* Color del ícono cuando se pasa el mouse */
+}
